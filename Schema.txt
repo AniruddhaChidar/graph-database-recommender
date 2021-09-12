@@ -1,0 +1,92 @@
+Each Node Explanation with its attributes
+
+Movies 
+    movie_id (primary key)
+    title   (not null)
+    url 
+    year_released
+    duration
+    avg_rating
+    no_user_ratings      (weight is 1)  
+    no_critic_ratings   (weight is 5)  (Default 0)
+
+Genres
+    name (primary key)
+
+is_genre
+    from Movies and Genres
+
+Celebrity
+    id   (primary key)
+    name (not null)
+    gender
+    dob
+
+acted_in
+    from celebrity to Movies (for actors)
+
+directed
+    from celebrity to Movies (for directors)
+
+User
+    username (primary key)
+    name (not null)
+    gender
+    dob
+
+friend 
+    from user to user
+    level
+
+request
+    from user to user
+
+likedGenre
+    from user to Genres
+
+favorite
+    from User to Celebrity
+
+rated
+    from User to Movies
+    rating
+
+Admin
+    username (primary key)
+    name (not null)
+    gender
+    dob
+
+Critic
+    username (primary key)
+    name (not null)
+    gender
+    dob
+
+review  
+    from Critic to Movies
+    rating
+    review_text
+
+Recommendation   (friend1 recommended friend2)
+    friend1
+    friend2 
+
+LikedRecommendation (friend1 liked friend2's recommendation)
+    friend1
+    friend2
+
+recommending_user
+    from Recommendation to User
+    from likedRecommendation to User
+
+to_whom_recommended
+    from Recommendation to User
+    from likedRecommendation to User
+
+movie_recommended
+    from Recommendation to Movies
+    from likedRecommendation to Movies
+
+
+
